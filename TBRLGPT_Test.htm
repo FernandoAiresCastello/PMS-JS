@@ -5,26 +5,23 @@
 <title>TBRLGPT Test</title>
 <style>
 
-	.content {
-		width: 640px;
-		height: 480px;
-		overflow: hidden;
-		margin: auto;
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-	}
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 </style>
-<script src='TBRLGPT.js'></script>
 </head>
 
 <body onload='Main()'>
-	<div class='content'>
-		<canvas id='canvas' width='640' height='480'></canvas>
-	</div>
+	<canvas id='canvas' width='0' height='0'></canvas>
 </body>
 
 </html>
+<script src='TBRLGPT.js'></script>

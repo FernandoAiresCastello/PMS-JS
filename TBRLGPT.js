@@ -1,41 +1,43 @@
+/*=============================================================================
 
-var Canvas = null;
-var BodyColor = '#000';
-var BackColor = '#fff';
-var GridColor = '#000';
-var GridStyle = [3];
-var CanvasWidth = 640;
-var CanvasHeight = 480;
-var Cols = 20;
-var Rows = 20;
-var TilePxCountX = 8;
-var TilePxCountY = 8;
-var TilePxCount = TilePxCountX * TilePxCountY;
-var GridTileWidth = CanvasWidth / Cols;
-var GridTileHeight = CanvasHeight / Rows;
-var TilePxWidth = GridTileWidth / TilePxCountX;
-var TilePxHeight = GridTileHeight / TilePxCountY;
+    TBRLGPT .js
+    Tile-Based Retro-Looking Game Project Template
+    2018 Developed by Fernando Aires Castello
 
-function InitSys() {
-    Canvas = document.getElementById('canvas').getContext('2d');
+=============================================================================*/
+const BackColor = '#fff';
+const BorderColor = '#000';
+const GridColor = '#000';
+const GridStyle = [3];
+const ScreenWidth = 256;
+const ScreenHeight = 192;
+const ScreenZoom = 3;
+const ScreenCols = 32;
+const ScreenRows = 24;
+const TilePxCountX = 8;
+const TilePxCountY = 8;
+const CanvasWidth = ScreenZoom * ScreenWidth;
+const CanvasHeight = ScreenZoom * ScreenHeight;
+const TilePxCount = TilePxCountX * TilePxCountY;
+const GridTileWidth = CanvasWidth / ScreenCols;
+const GridTileHeight = CanvasHeight / ScreenRows;
+const TilePxWidth = GridTileWidth / TilePxCountX;
+const TilePxHeight = GridTileHeight / TilePxCountY;
+const Canvas = document.getElementById('canvas').getContext('2d');
+
+function InitGraphics() {
+    document.body.style.backgroundColor = BorderColor;
     Canvas.canvas.width = CanvasWidth;
     Canvas.canvas.height = CanvasHeight;
     Canvas.imageSmoothingEnabled = false;
-
     Canvas.canvas.addEventListener('click', (e) => {
         CanvasClicked(e.layerX, e.layerY);
     });
-
-    SetBodyColor(BodyColor);
-    Cls(BackColor);
+    Cls();
 }
 
-function SetBodyColor(color) {
-    document.body.style.backgroundColor = color;
-}
-
-function Cls(color) {
-    Canvas.fillStyle = color;
+function Cls() {
+    Canvas.fillStyle = BackColor;
     Canvas.fillRect(0, 0, CanvasWidth, CanvasHeight);
 }
 
@@ -88,7 +90,8 @@ function CanvasClicked(x, y) {
 }
 
 function Main() {
-    InitSys();
+    
+    InitGraphics();
 
     const tile = 
         '10101010'+
