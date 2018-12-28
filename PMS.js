@@ -1,7 +1,7 @@
 /*=============================================================================
 
-    TBRLGPT .js
-    Tile-Based Retro-Looking Game Project Template
+    PMS.js
+    Pixel Manipulation Sample in Javascript
     2018 Developed by Fernando Aires Castello
 
 =============================================================================*/
