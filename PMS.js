@@ -5,17 +5,18 @@
     2018 Developed by Fernando Aires Castello
 
 =============================================================================*/
-const BackColor = '#fff';
-const BorderColor = '#000';
-const GridColor = '#000';
+const BackColor = '#000';
+const BorderColor = '#111';
+const GridColor = 'rgba(255,255,255,0.2)';
+const GridEnabled = false;
 const GridStyle = [3];
-const ScreenWidth = 256;
-const ScreenHeight = 192;
-const ScreenZoom = 3;
-const ScreenCols = 32;
-const ScreenRows = 24;
+const ScreenWidth = 160;
+const ScreenHeight = 144;
+const ScreenZoom = 4;
 const TilePxCountX = 8;
 const TilePxCountY = 8;
+const ScreenCols = ScreenWidth / TilePxCountX;
+const ScreenRows = ScreenHeight/ TilePxCountY;
 const CanvasWidth = ScreenZoom * ScreenWidth;
 const CanvasHeight = ScreenZoom * ScreenHeight;
 const TilePxCount = TilePxCountX * TilePxCountY;
@@ -42,8 +43,11 @@ function Cls() {
 }
 
 function DrawGrid() {
+	if (!GridEnabled)
+		return;
+	
     Canvas.strokeStyle = GridColor;
-    Canvas.lineWidth = 0.1;
+    Canvas.lineWidth = 1;
     Canvas.setLineDash(GridStyle)
     Canvas.beginPath();
     for (let x = 0, y = 0; x < CanvasWidth; x += GridTileWidth) {
@@ -93,7 +97,7 @@ function Main() {
     
     InitGraphics();
 
-    const tile = 
+    const tile2 = 
         '10101010'+
         '01010101'+
         '10101010'+
@@ -113,8 +117,8 @@ function Main() {
         '00111100';
 
     DrawTile(0, 0, '#f00', '#ff0', tile1);
-    DrawTile(1, 1, '#00f', '#f0f', tile1);
-    DrawTile(2, 1, '#0f0', '#0ff', tile1);
+    DrawTile(1, 1, '#00f', '#f0f', tile2);
+    DrawTile(2, 1, '#0f0', '#fff', tile1);
 
     DrawGrid();
 }
