@@ -6,12 +6,12 @@
 
 =============================================================================*/
 const BackColor = '#000';
-const BorderColor = '#111';
+const BorderColor = '#222';
 const GridColor = 'rgba(255,255,255,0.2)';
 const GridEnabled = false;
 const GridStyle = [3];
-const ScreenWidth = 160;
-const ScreenHeight = 144;
+const ScreenWidth = 336;
+const ScreenHeight = 152;
 const ScreenZoom = 4;
 const TilePxCountX = 8;
 const TilePxCountY = 8;
